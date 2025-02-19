@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: center;
+  padding: 34px 160px;
+  min-height: 100vh;
 }

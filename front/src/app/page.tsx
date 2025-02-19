@@ -1,3 +1,12 @@
+import { FilterBar } from "./components/filter-bar";
+import styles from "./page.module.css";
+
 export default function Home() {
-  return <div>{/* Conteúdo do projeto aqui */}</div>;
+  return (
+    <div>
+      <main className={styles.main}>
+        <FilterBar />
+      </main>
+    </div>
+  );
 }

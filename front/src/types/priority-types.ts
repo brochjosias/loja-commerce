@@ -1,0 +1,6 @@
+export enum PriorityTypes {
+  POPULARITY = "POPULARITY",
+  NEWS = "NEWS",
+  MINOR_PRICE = "MINOR_PRICE",
+  BIGGEST_PRICE = "BIGGEST_PRICE",
+}
