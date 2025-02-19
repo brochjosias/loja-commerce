@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Saira } from "next/font/google";
 import "./globals.css";
+import { Header } from "./components/header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const saira = Saira({
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
 });
 
@@ -24,7 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${saira.className}`}>
+        <Header />
         {children}
       </body>
     </html>
