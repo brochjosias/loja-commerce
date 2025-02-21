@@ -7,7 +7,10 @@ export interface Product {
   category?: string;
 }
 
-// Defina a estrutura esperada da resposta da API
+export interface ProductInCart extends Product {
+  quantity: number;
+}
+
 export interface ProductFetchResponse {
   data: {
     Product: Product;

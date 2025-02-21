@@ -52,11 +52,13 @@ export function Header(props: HeaderProps) {
 
   return (
     <TagHeader>
-      <Logo className={sairaStencil.className}>MugWear</Logo>
+      <Logo className={sairaStencil.className} href="/">
+        MugWear
+      </Logo>
       <div>
         <PrimaryInputWSearchIcon
           value={search}
-          onChange={(e) => setSearch(e.target.value)} // ✅ Correto
+          onChange={(e) => setSearch(e.target.value)} // Correto
           placeholder="Procurando por algo específico?"
         />
 
