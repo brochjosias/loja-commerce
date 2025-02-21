@@ -1,8 +1,8 @@
 "use client";
 
 import { useProducts } from "@/hooks/useProducts";
-import { styled } from "styled-components";
 import { ProductCard } from "./product-card";
+import { styled } from "styled-components";
 
 const ListContainer = styled.div`
   display: grid;
@@ -23,6 +23,7 @@ export function ProductsList() {
           title={product.name}
           price={product.price_in_cents}
           image={product.image_url}
+          id={product.id}
         />
       ))}
     </ListContainer>
