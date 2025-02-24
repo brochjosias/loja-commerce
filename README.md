@@ -26,6 +26,8 @@ Com uma interface moderna e responsiva, a MugWear oferece um fluxo de compra sim
 - Styled Components
 - GraphiQL
 
+## Modo de instalação
+
 Clone este repositório:
 
 ```bash
