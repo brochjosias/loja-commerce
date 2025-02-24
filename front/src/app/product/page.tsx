@@ -142,10 +142,7 @@ export default function Product() {
               <span>{data?.category}</span>
               <h2>{data?.name}</h2>
               <span>{formatPrice(data?.price_in_cents ?? 0)}</span>
-              <p>
-                *Frete de R$40,00 para todo o Brasil. Grátis para compras acima
-                de R$900,00.
-              </p>
+              <p>*Frete de R$20,00 para todo o Brasil.</p>
               <div>
                 <h3>Descrição</h3>
                 <p>{data?.description}</p>

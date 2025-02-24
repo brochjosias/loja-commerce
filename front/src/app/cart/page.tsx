@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { ProductInCart } from "@/types/product";
 import { formatPrice } from "@/utils/format-price";
@@ -94,11 +95,23 @@ const ShopBtn = styled.button`
   cursor: pointer;
 `;
 
+const SuccessMessage = styled.div`
+  background-color: #d4edda;
+  padding: 16px;
+  border-radius: 4px;
+  margin-top: 20px;
+  color: #155724;
+  font-weight: bold;
+  text-align: center;
+`;
+
 export default function CartPage() {
   const { value, updateLocalStorage } = useLocalStorage<ProductInCart[]>(
     "cart-items",
     []
   );
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isPurchased, setIsPurchased] = useState(false); // Estado para controlar a finalização da compra
 
   const calculateTotal = (value: ProductInCart[]) => {
     return value.reduce(
@@ -108,7 +121,7 @@ export default function CartPage() {
   };
 
   const cartTotal = formatPrice(calculateTotal(value));
-  const deliveryFee = 4000;
+  const deliveryFee = 2000;
   const cartTotalWithDelivery = formatPrice(
     calculateTotal(value) + deliveryFee
   );
@@ -122,50 +135,65 @@ export default function CartPage() {
   };
 
   const handleDeleteItem = (id: string) => {
-    const newValue = value.filter((item) => {
-      if (item.id !== id) return item;
-    });
+    const newValue = value.filter((item) => item.id !== id);
     updateLocalStorage(newValue);
+  };
+
+  const handleFinalizePurchase = () => {
+    // Limpa os itens do carrinho e o resumo do pedido
+    updateLocalStorage([]);
+    setIsPurchased(true); // Define que a compra foi finalizada
+    setSuccessMessage(
+      "Compra finalizada com sucesso! Verifique seu e-mail para mais detalhes."
+    );
   };
 
   return (
     <DefaultPageLayout>
       <Container>
-        <CartListContainer>
-          <BackBtn navigate="/" />
-          <h3>Seu carrinho</h3>
-          <p>
-            Total {value.length} produtos
-            <span>{cartTotal}</span>
-          </p>
-          <CartList>
-            {value.map((item) => (
-              <CartItem
-                product={item}
-                key={item.id}
-                handleDelete={handleDeleteItem}
-                handleUpdateQuantity={handleUpdateQuantity}
-              />
-            ))}
-          </CartList>
-        </CartListContainer>
-        <CartResultContainer>
-          <h3>Resumo do Pedido</h3>
-          <TotalItem $isBold={false}>
-            <p>Subtotal de produtos</p>
-            <p>{cartTotal}</p>
-          </TotalItem>
-          <TotalItem $isBold={false}>
-            <p>Entrega</p>
-            <p>{formatPrice(deliveryFee)}</p>
-          </TotalItem>
-          <Divider />
-          <TotalItem $isBold>
-            <p>Total</p>
-            <p>{cartTotalWithDelivery}</p>
-          </TotalItem>
-          <ShopBtn>FINALIZAR COMPRA</ShopBtn>
-        </CartResultContainer>
+        {!isPurchased && ( // Exibe os cards somente se a compra não foi finalizada
+          <>
+            <CartListContainer>
+              <BackBtn navigate="/" />
+              <h3>Seu carrinho</h3>
+              <p>
+                Total {value.length} produtos
+                <span>{cartTotal}</span>
+              </p>
+              <CartList>
+                {value.map((item) => (
+                  <CartItem
+                    product={item}
+                    key={item.id}
+                    handleDelete={handleDeleteItem}
+                    handleUpdateQuantity={handleUpdateQuantity}
+                  />
+                ))}
+              </CartList>
+            </CartListContainer>
+            <CartResultContainer>
+              <h3>Resumo do Pedido</h3>
+              <TotalItem $isBold={false}>
+                <p>Subtotal de produtos</p>
+                <p>{cartTotal}</p>
+              </TotalItem>
+              <TotalItem $isBold={false}>
+                <p>Entrega</p>
+                <p>{formatPrice(deliveryFee)}</p>
+              </TotalItem>
+              <Divider />
+              <TotalItem $isBold>
+                <p>Total</p>
+                <p>{cartTotalWithDelivery}</p>
+              </TotalItem>
+              <ShopBtn onClick={handleFinalizePurchase}>
+                FINALIZAR COMPRA
+              </ShopBtn>
+            </CartResultContainer>
+          </>
+        )}
+        {isPurchased && <SuccessMessage>{successMessage}</SuccessMessage>}{" "}
+        {/* Exibe a mensagem de sucesso */}
       </Container>
     </DefaultPageLayout>
   );
