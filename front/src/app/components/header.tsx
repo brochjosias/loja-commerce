@@ -23,7 +23,11 @@ const TagHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 10px; /* Adjust the gap between search and cart control */
+  }
+
+  @media (max-width: ${(props) => props.theme.tableBreakpoint}) {
+    gap: 20px; /* Adjust gap for mobile */
   }
 
   @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
@@ -34,12 +38,12 @@ const TagHeader = styled.header`
 const Logo = styled.a`
   color: var(--logo-color);
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px; /* Reduced logo size on mobile */
   line-height: 150%;
   text-decoration: none;
 
   @media (min-width: ${(props) => props.theme.tableBreakpoint}) {
-    font-size: 24px;
+    font-size: 22px; /* Slightly bigger on tablet */
   }
 
   @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {

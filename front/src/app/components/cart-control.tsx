@@ -9,11 +9,23 @@ const CartCount = styled.span`
   border-radius: 100%;
   padding: 0 5px;
   font-size: 10px;
-
   background-color: var(--delete-color);
   color: white;
 
-  margin-left: -10px;
+  position: absolute;
+  top: 20px; /* Position below the cart icon */
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the number inside the bubble */
+
+  @media (max-width: ${(props) => props.theme.tableBreakpoint}) {
+    top: 22px; /* Adjust position on mobile */
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const Container = styled.button`

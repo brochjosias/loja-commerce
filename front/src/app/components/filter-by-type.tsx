@@ -23,11 +23,12 @@ const FilterItem = styled.li<FilterItemProps>`
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-
   color: var(--text-dark);
-
   border-bottom: ${(props) =>
     props.selected ? "4px solid var(--orange-low);" : ""};
+
+  margin-right: ${(props) =>
+    props.children === "Canecas" ? "20px" : "0"}; /* Add margin to Canecas */
 
   @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
     font-size: 16px;
