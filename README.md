@@ -28,10 +28,10 @@ Com uma interface moderna e responsiva, a MugWear oferece um fluxo de compra sim
 
 ## Modo de instalação
 
-Clone este repositório:
+Clone este repositório em seu terminal:
 
 ```bash
-https://github.com/brochjosias/loja-commerce.git
+git clone https://github.com/brochjosias/loja-commerce.git
 ```
 
 **BACK-END:**
