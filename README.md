@@ -24,7 +24,7 @@ Com uma interface moderna e responsiva, a MugWear oferece um fluxo de compra sim
 - HTML
 - CSS
 - Styled Components
-- GraphiQL
+- GraphQL
 
 ## Modo de instalação
 
