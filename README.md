@@ -2,6 +2,11 @@
 
 Bem-vindo a MugWear! Este é um projeto e-commerce desenvolvido para lojas de roupas e acessórios.
 
+| ![Imagem 1](./imagens/1.png) | ![Imagem 2](./imagens/2.png) | ![Imagem 3](./imagens/4.png) | ![Imagem 4](./imagens/5.png) | ![Imagem 5](./imagens/6.png) | ![Imagem 6](./imagens/7.png) |
+| ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
+
+[Linkedin Post](https://www.linkedin.com/posts/josiasbroch_nextjs-typescript-graphiql-activity-7300179815779708930-HX7U?utm_source=share&utm_medium=member_desktop&rcm=ACoAADlRdAMBKY74vEDZtFxqewys63zNrB0PecY)
+
 ## Visão Geral
 
 A MugWear é uma plataforma de e-commerce desenvolvida para lojas de roupas e acessórios. O projeto foi criado para proporcionar uma experiência de compra intuitiva e eficiente, permitindo que os clientes naveguem por um catálogo variado, explorem detalhes dos produtos e finalizem suas compras com facilidade.
